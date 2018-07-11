@@ -1,0 +1,468 @@
+#include "Play.h"
+
+Play::Play()
+{
+    escolhaCont = 0;
+    escolhaFinal = 0;
+    escolhaInicial = 0;
+    Tela = 0;
+
+    ArvoreJogo.Inserir(42, "Eh docente do DC?");
+    ArvoreJogo.Inserir(44, "Vai nas festinhas?");
+    ArvoreJogo.Inserir(43, "NICANOR!");
+
+    ArvoreJogo.Inserir(46, "Eh tecnico de TI do DC?");
+    ArvoreJogo.Inserir(47, "=( vc n respondeu certo, ou escolheu alguem q n existe");
+    ArvoreJogo.Inserir(45, "MARIANA!");
+
+    ArvoreJogo.Inserir(20, "Fez graduacao na UFSCar?");
+    ArvoreJogo.Inserir(8, "Eh mulher?");
+    ArvoreJogo.Inserir(2, "Seu doutorado esta em andamento?");
+    ArvoreJogo.Inserir(1, "TATIANA!");
+
+    ArvoreJogo.Inserir(4, "Realiza o Momento Remember?");
+    ArvoreJogo.Inserir(3, "VANIA!");
+
+    ArvoreJogo.Inserir(6, "Sabe o nome de todos os alunos da comp já existentes na UFSCar?");
+    ArvoreJogo.Inserir(5, "SANDRA!");
+    ArvoreJogo.Inserir(7, "=(");
+
+    ArvoreJogo.Inserir(14, "Fez pós-doutorado no Reino Unido?");
+    ArvoreJogo.Inserir(10, "Coordena o departamento de computação?");
+    ArvoreJogo.Inserir(9, "HELIO!");
+
+    ArvoreJogo.Inserir(12, "É um vilao do Homem-Aranha?");
+    ArvoreJogo.Inserir(11, "TEIXEIRA!");
+    ArvoreJogo.Inserir(13, "=(");
+
+    ArvoreJogo.Inserir(16, "Faz videos para o YouTube?");
+    ArvoreJogo.Inserir(15, "EDNALDO!");
+    ArvoreJogo.Inserir(18, "Coordena o EDGames?");
+    ArvoreJogo.Inserir(17, "FERRARI!");
+    ArvoreJogo.Inserir(19, "=(");
+
+    ArvoreJogo.Inserir(30, "Tem interesse na área de IA e Machine Learning?");
+    ArvoreJogo.Inserir(26, "Fez mestrado em Ciencia da Computacao e Matematica Computacional na USP?");
+    ArvoreJogo.Inserir(22, "Eh um baixista que faz vídeos para o Youtube?");
+    ArvoreJogo.Inserir(21, "CERRI!");
+
+    ArvoreJogo.Inserir(24, "Faz slides engraçados e didaticos?");
+    ArvoreJogo.Inserir(23, "DIEGO!");
+    ArvoreJogo.Inserir(25, "=(");
+
+    ArvoreJogo.Inserir(28, "Ha boatos de que deu um mortal para tras em aula?");
+    ArvoreJogo.Inserir(27, "ESTEVAM!");
+    ArvoreJogo.Inserir(29, "=(");
+
+    ArvoreJogo.Inserir(36, "Fez graduacao em Engenharia Eletrica?");
+    ArvoreJogo.Inserir(32, "Tem olhos claros?");
+    ArvoreJogo.Inserir(31, "FREDY!");
+
+    ArvoreJogo.Inserir(34, "Cuida do jardim do DC?");
+    ArvoreJogo.Inserir(33, "FIGAS!");
+    ArvoreJogo.Inserir(35, "=(");
+
+    ArvoreJogo.Inserir(38, "Eh possivel ganhar meia presenta em suas aulas? (sim, vc leu direito)");
+    ArvoreJogo.Inserir(37, "MENOTTI!");
+
+    ArvoreJogo.Inserir(40, "Eh sorridente e branquinho?");
+    ArvoreJogo.Inserir(39, "BUENO!");
+    ArvoreJogo.Inserir(41, "=(");
+}
+
+Play::~Play()
+{
+    //dtor
+}
+
+void Play::CarregaImagens()
+{
+    //MENU
+    if(!TMenu.loadFromFile("imagens/menu.jpg"))
+        cout << "Erro no menu" << endl;
+
+    SMenu.setTexture(TMenu);
+
+
+    //NOMES
+    if(!TNames.loadFromFile("imagens/pessoas.jpg"))
+        cout << "Erro nos nomes" << endl;
+
+    SNames.setTexture(TNames);
+
+    /*
+    //PERGUNTAS
+    if(!TQuest[0].loadFromFile("imagens/menu.png"))
+        cout << "Erro" << endl;
+    SQuest[0].setTexture(TQuest[0]);
+
+    if(!TQuest[1].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[1].setTexture(TQuest[1]);
+
+    if(!TQuest[2].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[2].setTexture(TQuest[2]);
+
+    if(!TQuest[3].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[3].setTexture(TQuest[3]);
+
+    if(!TQuest[4].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[4].setTexture(TQuest[4]);
+
+    if(!TQuest[5].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[5].setTexture(TQuest[5]);
+
+    if(!TQuest[6].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[6].setTexture(TQuest[6]);
+
+    if(!TQuest[7].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[7].setTexture(TQuest[7]);
+
+    if(!TQuest[8].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[8].setTexture(TQuest[8]);
+
+    if(!TQuest[9].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[9].setTexture(TQuest[9]);
+
+    if(!TQuest[10].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[10].setTexture(TQuest[10]);
+
+    if(!TQuest[11].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[11].setTexture(TQuest[11]);
+
+    if(!TQuest[12].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[12].setTexture(TQuest[12]);
+
+    if(!TQuest[13].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[13].setTexture(TQuest[13]);
+
+    if(!TQuest[14].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[14].setTexture(TQuest[14]);
+
+    if(!TQuest[15].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[15].setTexture(TQuest[15]);
+
+    if(!TQuest[16].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[16].setTexture(TQuest[16]);
+
+    if(!TQuest[17].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[17].setTexture(TQuest[17]);
+
+    if(!TQuest[18].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[18].setTexture(TQuest[18]);
+
+    if(!TQuest[19].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[19].setTexture(TQuest[19]);
+
+    if(!TQuest[20].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[20].setTexture(TQuest[20]);
+
+    if(!TQuest[21].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[21].setTexture(TQuest[21]);
+
+    if(!TQuest[22].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[22].setTexture(TQuest[22]);
+
+    if(!TQuest[23].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[23].setTexture(TQuest[23]);
+
+    if(!TQuest[24].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[24].setTexture(TQuest[24]);
+
+    if(!TQuest[25].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[25].setTexture(TQuest[25]);
+
+    if(!TQuest[26].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[26].setTexture(TQuest[26]);
+
+    if(!TQuest[27].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[27].setTexture(TQuest[27]);
+
+    if(!TQuest[28].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[28].setTexture(TQuest[28]);
+
+    if(!TQuest[29].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[29].setTexture(TQuest[29]);
+
+    if(!TQuest[30].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[30].setTexture(TQuest[30]);
+
+    if(!TQuest[31].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[31].setTexture(TQuest[31]);
+
+    if(!TQuest[32].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[32].setTexture(TQuest[32]);
+
+    if(!TQuest[33].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[33].setTexture(TQuest[33]);
+
+    if(!TQuest[34].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[34].setTexture(TQuest[34]);
+
+    if(!TQuest[35].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[35].setTexture(TQuest[35]);
+
+    if(!TQuest[36].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[36].setTexture(TQuest[36]);
+
+    if(!TQuest[37].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[37].setTexture(TQuest[37]);
+
+    if(!TQuest[38].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[38].setTexture(TQuest[38]);
+
+    if(!TQuest[39].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[39].setTexture(TQuest[39]);
+
+    if(!TQuest[40].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[40].setTexture(TQuest[40]);
+
+    if(!TQuest[41].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[41].setTexture(TQuest[41]);
+
+    if(!TQuest[42].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[42].setTexture(TQuest[42]);
+
+    if(!TQuest[43].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[43].setTexture(TQuest[43]);
+
+    if(!TQuest[44].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[44].setTexture(TQuest[44]);
+
+    if(!TQuest[45].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[45].setTexture(TQuest[45]);
+
+    if(!TQuest[46].loadFromFile("imagens/substituirnome.png"))
+        cout << "Erro" << endl;
+    SQuest[46].setTexture(TQuest[46]);
+    */
+}
+
+void Play::Eventos()
+{
+    while(window.pollEvent(evnt)){
+            if(evnt.type == sf::Event::Closed)
+                window.close();
+        }
+}
+
+void Play::Mouse()
+{
+    //se a pessoa clicar em SAIR
+    if((180<sf::Mouse::getPosition(window).x && sf::Mouse::getPosition(window).x<425) &&
+       (494<sf::Mouse::getPosition(window).y && sf::Mouse::getPosition(window).y<580)){
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            escolhaInicial = 1;
+        }
+    }
+
+    //se a pessoa clicar em JOGAR
+    if((270<sf::Mouse::getPosition(window).x && sf::Mouse::getPosition(window).x<547) &&
+       (331<sf::Mouse::getPosition(window).y && sf::Mouse::getPosition(window).y<431)){
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            escolhaInicial = 2;
+        }
+    }
+
+    //se a pessoa clicar em CONTINUAR
+    if((335<sf::Mouse::getPosition(window).x && sf::Mouse::getPosition(window).x<633)){
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            escolhaCont = 1;
+        }
+    }
+
+    //se a pessoa clicar em SIM
+    if((335<sf::Mouse::getPosition(window).x && sf::Mouse::getPosition(window).x<633)){
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            SimOuNao = 2;
+        }
+    }
+
+    //se a pessoa clicar em NAO
+    if((335<sf::Mouse::getPosition(window).x && sf::Mouse::getPosition(window).x<633)){
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            SimOuNao = 1;
+        }
+    }
+
+    //se a pessoa clicar em SAIR dps de ter jogado
+    if((335<sf::Mouse::getPosition(window).x && sf::Mouse::getPosition(window).x<633)){
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            escolhaFinal = 1;
+        }
+    }
+
+    //se a pessoa clicar em JOGAR NOVAMENTE
+    if((335<sf::Mouse::getPosition(window).x && sf::Mouse::getPosition(window).x<633)){
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            escolhaFinal = 2;
+        }
+    }
+}
+
+void Play::Reseta()
+{
+    escolhaInicial = 0;
+    escolhaCont = 0;
+    SimOuNao = 0;
+    escolhaFinal = 0;
+    int i;
+    for(i=0; i<47; i++)
+    {
+        ArvoreJogo.MudaVerificacao(ArvoreJogo.getRaiz(), i, 1);
+    }
+
+}
+
+int Play::Anda(Node* Raiz)
+{
+    if(Raiz->getVerificacao() == 1)
+    {
+        return Raiz->getID();
+    }
+    else
+    {
+        if(Raiz->getVerificacao() == 0)
+            return Anda(Raiz->getDir());
+        if(Raiz->getVerificacao() == 2)
+            return Anda(Raiz->getEsq());
+    }
+}
+
+/*
+void Play::Menu()
+{
+    cout << "Ola! Pense em uma dessas pessoas do DC! Vou adivinhar qual é: " << endl;
+    cout << "-Teixeira\n-Ednaldo\n-Ferrari\n-Helio\n-Sandra\n-Tatiana\n-Vania\n-Nicanor\n-Mariana" << endl;
+    cout << "-Cerri\n-Figas\n-Diego\n-Bueno\n-Fredy\n-Menotti\n-Estevam" << endl;
+    cout << "1) HEY HO LET'S GO \n2) n to afim" << endl;
+}
+*/
+
+/*
+void Play::Imprime()
+{
+    cout << "PreOrdem:" << endl;
+    ArvoreJogo.PreOrdem(ArvoreJogo.getRaiz());
+}
+*/
+
+
+void Play::Jogo()
+{
+
+    //Criando a tela
+    window.create(sf::VideoMode(1250, 660), "DCnator");
+    window.setFramerateLimit(60);
+
+    CarregaImagens();
+
+    while(window.isOpen()){
+
+        Eventos();
+        window.draw(SMenu);
+        window.display();
+
+        Mouse();
+        /*if(sf::Event::MouseMoved){
+            cout << "x= " << evnt.mouseMove.x << endl;
+            cout << "y= " << evnt.mouseMove.y << endl << endl;
+        }
+        */
+
+            if(escolhaInicial == 1)
+                window.close();
+
+            if(escolhaInicial == 2)
+            {
+                Eventos();
+                window.clear();
+                window.draw(SNames);
+                window.display();
+                Mouse();
+
+                if(escolhaCont = 1)
+                {
+                    do
+                    {
+                        Eventos();
+                        Tela = Anda(ArvoreJogo.getRaiz()); //Tela= ID do nó em que está SE VERIFIC = 1
+                        window.clear();
+                        window.draw(SQuest[Tela]);
+                        window.display();
+
+                        //para verificar o valor de SimOuNão
+                        Mouse();
+                        //Se Sim, muda verificacao pra 2. Se não, muda para 0
+                        ArvoreJogo.MudaVerificacao(ArvoreJogo.getRaiz(), Tela, SimOuNao);
+                        //cout << ArvoreJogo.getRaiz()->getVerificacao() << endl;
+                    } while(!ArvoreJogo.TerminouJogo(ArvoreJogo.getRaiz(), Tela));
+                }
+
+                Mouse();
+
+                if(escolhaFinal == 1)
+                    window.clear();
+
+                if(escolhaFinal == 2){
+                    Eventos();
+                    Reseta();
+                }
+            }
+
+    }
+
+}
+
+//pra achar o nó em que está no momento
