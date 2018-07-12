@@ -26,9 +26,9 @@ Esther Calderan Hoffmann - RA: 743529
     
     4) Em "Search Directories" ir até a aba "Compiler"
     
-    5) Alterar o diretório exibido para "<onde-foi-salvo-o-arquivo>/DCnator-master/DCnator/include"
+    5) Alterar o diretório exibido para "<diretorio-no-seu-computador-do-DCnator.cbp>/include"
     
-    6) Na aba "Linker", alterar o diretório exibido para "<onde-foi-salvo-o-arquivo>/DCnator-master/DCnator/lib"
+    6) Na aba "Linker", alterar o diretório exibido para "<diretorio-no-seu-computador-do-DCnator.cbp>/lib"
     
     7) Selecionar OK
     
